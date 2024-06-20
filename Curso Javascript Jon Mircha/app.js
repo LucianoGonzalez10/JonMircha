@@ -432,8 +432,16 @@ presentarse(); // SE ASIGNA EL VALOR DE LA DERECHA PORQUE NOMBRE ES NULL
 presentarse("Luciano"); // SE ASIGNA EL VALOR DEL PARAMETRO
 
 // VIDEO 30 - Alert - Confirm - Prompt 
-alert("Hola, soy una alerta");
+/* alert("Hola, soy una alerta");
 let confirmacion = confirm("Hola, esto es una confirmacion, devuelvo true o false");
 let valorIngresado = prompt("Hola, esto es una peticion, ingrese un valor");
 console.log(`Confirmacion: ${confirmacion}`);
-console.log(`Valor ingresado: ${valorIngresado}`);
+console.log(`Valor ingresado: ${valorIngresado}`); */
+
+// VIDEO 31 - Expresiones Regulares
+let expRegular = new RegExp("juan", "i"); 
+let expRegular2 = /juan/; // DECLARO MI EXPRESION REGULAR
+
+let cadena = "Hola soy Juan"; 
+console.log(expRegular.test(cadena)); // TESTEA QUE JUAN EXISTA EN MI CADENA
+console.log(expRegular.exec(cadena)); // DEVUELVE UN ARREGLO CON LAS CO
