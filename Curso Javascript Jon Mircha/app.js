@@ -348,4 +348,53 @@ function Animal(nombre, genero){ // FUNCION CONSTRUCTORA V1
 }
 this.sonar = function(){ // METODO
         console.log("Hago sonidos porque estoy vivo");
+}
+// VIDEO 23 - HERENCIA PROTOTIPICA
+function Perro(nombre, genero, tamanio){
+    this.super = Animal;
+    this.super(nombre, genero);
+    this.tamanio = tamanio;
+}
+
+Perro.prototype = new Animal(); 
+Perro.prototype.sonar = function(){
+    console.log("guau guau");
+}
+
+// VIDEO 24 - CLASES Y HERENCIA
+
+class Animal2{ // CLASE PADRE
+    constructor(nombre, genero){ // CONSTRUCTOR
+        this.nombre = nombre;
+        this.genero = genero;
     }
+
+    sonar(){
+        console.log("Soy un metodo de la clase animal.");
+    }
+    saludar(){
+        console.log("Estoy saludando desde la clase animal.");
+    }
+}
+
+const animal1 = new Animal2("Mimi", "Hembra"); // Declarar Metodo
+const animal2 = new Animal2("Scooby", "Macho");
+animal2.sonar();
+
+class Gato extends Animal2{ // Clase Hija
+    
+    constructor(nombre, genero, tamanio){ // CONSTRUCTOR
+        super(nombre, genero); // CONSTRUCTOR CLASE PADRE
+        this.tamanio = tamanio; 
+    }
+
+    sonar(){
+        console.log(`Hola soy un Gato, extiendo de Animal y mi nombre es: ${this.nombre}`); // SOBREESCRIBIR METODO
+    }
+}
+
+const gato1 = new Gato("Juan", "Macho", "Mediano");
+gato1.sonar();
+gato1.saludar();
+
+console.log(`Hola, soy ${nombre}`);
