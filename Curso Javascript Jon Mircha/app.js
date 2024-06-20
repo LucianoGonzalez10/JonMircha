@@ -323,9 +323,9 @@ const animal = { // OBJETO LITERAL
 console.log(animal);
 
 
-function Animal(nombre, genero){ // FUNCION CONSTRUCTORA V1
+function Animal(nombre, posicion){ // FUNCION CONSTRUCTORA V1
     this.nombre = nombre;
-    this.genero = genero;
+    this.posicion = posicion;
 
     this.sonar = function(){ // METODO
         console.log("Hago sonidos porque estoy vivo");
@@ -340,9 +340,9 @@ console.log(lolaBunny);
 
 
 
-function Animal(nombre, genero){ // FUNCION CONSTRUCTORA V1
+function Animal(nombre, posicion){ // FUNCION CONSTRUCTORA V1
     this.nombre = nombre;
-    this.genero = genero;
+    this.posicion = posicion;
 
     
 }
@@ -350,9 +350,9 @@ this.sonar = function(){ // METODO
         console.log("Hago sonidos porque estoy vivo");
 }
 // VIDEO 23 - HERENCIA PROTOTIPICA
-function Perro(nombre, genero, tamanio){
+function Perro(nombre, posicion, tamanio){
     this.super = Animal;
-    this.super(nombre, genero);
+    this.super(nombre, posicion);
     this.tamanio = tamanio;
 }
 
@@ -364,9 +364,9 @@ Perro.prototype.sonar = function(){
 // VIDEO 24 - CLASES Y HERENCIA
 
 class Animal2{ // CLASE PADRE
-    constructor(nombre, genero){ // CONSTRUCTOR
+    constructor(nombre, posicion){ // CONSTRUCTOR
         this.nombre = nombre;
-        this.genero = genero;
+        this.posicion = posicion;
     }
 
     sonar(){
@@ -383,8 +383,8 @@ animal2.sonar();
 
 class Gato extends Animal2{ // Clase Hija
     
-    constructor(nombre, genero, tamanio){ // CONSTRUCTOR
-        super(nombre, genero); // CONSTRUCTOR CLASE PADRE
+    constructor(nombre, posicion, tamanio){ // CONSTRUCTOR
+        super(nombre, posicion); // CONSTRUCTOR CLASE PADRE
         this.tamanio = tamanio; 
     }
 
@@ -398,3 +398,42 @@ gato1.sonar();
 gato1.saludar();
 
 console.log(`Hola, soy ${nombre}`);
+
+// VIDEO 25 - METODOS ESTATICOS, GETTERS Y SETTERS
+class Jugador{ // CLASE 
+    constructor(nombre, posicion){ // CONSTRUCTOR
+        this.nombre = nombre;
+        this.posicion = posicion;
+    }
+
+    sonar(){
+        console.log("Soy un metodo de la clase Jugador.");
+    }
+    static saludarJugador(){
+        console.log("Soy un metodo estatico de la clase Jugador."); // METODO ESTATICO
+    }
+
+    getNombre(){ // GET
+        return this.nombre;
+    }
+
+    setNombre(nombre){ // SET
+        this.nombre = nombre;
+    }
+}
+Jugador.saludarJugador(); // METODO ESTATICO
+
+// VIDEO 29 - CORTOCIRCUITOS
+function presentarse(nombre = "Desconocido"){
+    nombre = nombre;
+    saludar(`Hola soy: ${nombre}`);
+}
+presentarse(); // SE ASIGNA EL VALOR DE LA DERECHA PORQUE NOMBRE ES NULL
+presentarse("Luciano"); // SE ASIGNA EL VALOR DEL PARAMETRO
+
+// VIDEO 30 - Alert - Confirm - Prompt 
+alert("Hola, soy una alerta");
+let confirmacion = confirm("Hola, esto es una confirmacion, devuelvo true o false");
+let valorIngresado = prompt("Hola, esto es una peticion, ingrese un valor");
+console.log(`Confirmacion: ${confirmacion}`);
+console.log(`Valor ingresado: ${valorIngresado}`);
