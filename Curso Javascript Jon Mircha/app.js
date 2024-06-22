@@ -444,4 +444,16 @@ let expRegular2 = /juan/; // DECLARO MI EXPRESION REGULAR
 
 let cadena = "Hola soy Juan"; 
 console.log(expRegular.test(cadena)); // TESTEA QUE JUAN EXISTA EN MI CADENA
-console.log(expRegular.exec(cadena)); // DEVUELVE UN ARREGLO CON LAS CO
+console.log(expRegular.exec(cadena)); // DEVUELVE UN ARREGLO CON LAS COINCIDENCIAS
+
+// DEVOLVER NUMERO RANDOM EN UN RANGO
+
+function numeroRandom(a, x){
+    if(typeof a === 'number' && typeof x === 'number'){
+        
+        return parseInt(Math.random() * (a - x) + x);
+    }
+}
+
+console.log(numeroRandom(10,20));
+
