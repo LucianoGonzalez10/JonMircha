@@ -446,7 +446,7 @@ let cadena = "Hola soy Juan";
 console.log(expRegular.test(cadena)); // TESTEA QUE JUAN EXISTA EN MI CADENA
 console.log(expRegular.exec(cadena)); // DEVUELVE UN ARREGLO CON LAS COINCIDENCIAS
 
-// DEVOLVER NUMERO RANDOM EN UN RANGO
+// DEVOLVER NUMERO RANDOM EN UN RANGO (VIDEO 37 EJERCICIO 9)
 
 function numeroRandom(a, x){
     if(typeof a === 'number' && typeof x === 'number'){
@@ -456,4 +456,118 @@ function numeroRandom(a, x){
 }
 
 console.log(numeroRandom(10,20));
+
+// EVALUAR SI UN NUMERO ES CAPICUA (VIDEO 39 EJERCICIO 10)
+function esCapicua(numero){
+    const numStr = numero.toString();
+    const numReverse = numStr.split('').reverse().join('');
+    return numStr === numReverse;
+}
+console.log(`Es Capicua: ${esCapicua(1221)}`);
+
+// CALCULAR EL FACTORIAL DE UN NUMERO (VIDEO 39 EJERCICIO 11)
+function calcularFac(numero){
+    let res = numero; // 5x4x3x2x1
+    for(let i = numero-1; i>0; i--){
+        res = res * i; 
+    }
+    return res;
+}
+
+console.log(`Factorial de un numero: ${calcularFac(5)}`);
+
+// DETERMINAR SI UN NUMERO ES PRIMO (VIDEO 39 EJERCICIO 12)
+function determinarPrimo(numero){
+    let divisible = false;
+    for(let i = 2; i < numero; i++){
+        if((numero % i) === 0){
+            divisible = true;
+        }
+    }
+    if(divisible == false){
+       console.log(`El numero: ${numero} SI es primo`); 
+    }
+    else{
+        console.log(`El numero: ${numero} NO es primo`); 
+    }
+}
+
+determinarPrimo(7);
+
+// DETERMINAR SI UN NUMERO ES PRIMO (VIDEO 39 EJERCICIO 16)
+function calcularDesc(monto, desc){
+    if(desc <= 100){
+        return  monto - ((monto / 100) * desc);
+    }
+    else{
+        return("No existen descuentos del mas del 100%");
+    }
+}
+
+console.log(`Costo final aplicando el descuento: ${calcularDesc(1000, 101)}`);
+
+// ELEVAR NUMEROS DE UN ARRAYLIST (VIDEO 41 EJERCICIO 21)
+function elevarArraylist(x){
+    for(let i = 0; i < x.length; i++){
+        x[i] = Math.pow(x[i],2);
+    }
+}
+
+let arr = [2,8,10,20];
+elevarArraylist(arr);
+
+arr.forEach(num => {
+    console.log(num);
+});
+
+// BUSCAR ALTO Y BAJO (VIDEO 41 EJERCICIO 22)
+
+function buscarAltoyBajo(x){
+    alto = x[0];
+    bajo = x[0];
+    x.forEach(num => {
+        
+        if(num > alto){
+            alto = num;
+        }
+
+        if(num < bajo){
+            bajo = num;
+        }
+    });
+    
+    let retornado = [alto, bajo];
+    return retornado;
+}
+
+let resu = buscarAltoyBajo(arr);
+console.log(resu);
+
+// ORDENAR ARRAYLIST (VIDEO 42 EJERCICIO 24)
+
+let numeritos = [5, 3, 8, 1, 2, 9, 4];
+let numeritosaux = [...numeritos];
+
+numeritos.sort((a, b) => b - a);
+numeritosaux.sort((a, b) => a - b);
+
+console.log(numeritos);
+console.log(numeritosaux);
+
+// VIDEO 45 - Temporizadores
+console.log("Iniciando...");
+
+let temporizador = setTimeout(() => {
+    console.log("Ejecutando un setTimeOut, se ejecuta una sola vez"); // Funcion
+}, 4000); // Milisegundos en tardar en ejecutar
+
+clearTimeout(temporizador); // No ejecuta el setTimeOut porque lo cancelo.
+// RELOJ 
+const horaIndex = document.getElementById('Hora');
+horaIndex.innerHTML = (new Date().toTimeString()); // Sucede indefinidamente cada cierto intervalo de tiempo.
+let intervalo = setInterval(() => {
+    horaIndex.innerHTML = (new Date().toTimeString()); // Sucede indefinidamente cada cierto intervalo de tiempo.
+}, 500); // Milisegundos de los intervalos.
+
+clearInterval(intervalo);
 
